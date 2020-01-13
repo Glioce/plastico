@@ -10,7 +10,7 @@ https://www.flintec.com/mx/sensores-de-peso/celulas-de-carga/plataforma
 https://www.flintec.com/mx/sensores-de-peso/celulas-de-carga/ultraprecision  
 
 Cómo conectar MAX6675. Hilo en foro desde 2016 hasta feb 2019  
-https://www.raspberrypi.org/forums/viewtopic.php
+https://www.raspberrypi.org/forums/viewtopic.php?t=145568
 
 Bibliotecas para MAX6675  
 https://github.com/Tuckie/max31855  
