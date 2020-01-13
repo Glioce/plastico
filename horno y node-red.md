@@ -10,23 +10,30 @@ https://www.flintec.com/mx/sensores-de-peso/celulas-de-carga/plataforma
 https://www.flintec.com/mx/sensores-de-peso/celulas-de-carga/ultraprecision  
 
 Cómo conectar MAX6675. Hilo en foro desde 2016 hasta feb 2019  
-https://www.raspberrypi.org/forums/viewtopic.php?t=145568
+https://www.raspberrypi.org/forums/viewtopic.php?t=145568  
 
 Bibliotecas para MAX6675  
 
 Esta bib solo funciona con MAX21855, pero el fork de abajo agrega MAX6675  
+Usa bit-banging, y no el hardware SPI
+Las ventajas que tiene es que se pueden 
 https://github.com/Tuckie/max31855  
 https://github.com/node-alpha/max31855  
 Se intentó instalar con estas referencias pero no funcionó  
 https://github.com/Tuckie/max31855/issues/10  
 https://www.raspberrypi-spy.co.uk/2012/05/install-rpi-gpio-python-library/  
-
-Se usará la biblioteca sin instalar, de esta forma
-https://github.com/arnauorriols/node-red-contrib-python-function/issues/3
+Se puede usar la biblioteca sin instalar, con el método mostrado más abajo.
+Sí funciona, pero a veces la lectura no cambia!  
 
 https://github.com/tdack/MAX6675  
 https://github.com/apollo-ng/picoReflow/blob/master/lib/oven.py
 https://github.com/adafruit/MAX6675-library  
+
+Para usar python dentro de Node-RED se utilizarán estos nodos
+https://flows.nodered.org/node/node-red-contrib-python-function
+https://flows.nodered.org/node/node-red-contrib-python3-function
+Y para usar módulos externos se usará este método
+https://github.com/arnauorriols/node-red-contrib-python-function/issues/3  
 
 Un programa escrito en C y compilado es llamado por otro programa escrito en Python  
 No suena muy eficiente  
