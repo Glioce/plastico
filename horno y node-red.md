@@ -13,7 +13,11 @@ Cómo conectar MAX6675. Hilo en foro desde 2016 hasta feb 2019
 https://www.raspberrypi.org/forums/viewtopic.php?t=145568
 
 Bibliotecas para MAX6675  
+
+Esta bib solo funciona con MAX21855, pero el fork de abajo agrega MAX6675  
 https://github.com/Tuckie/max31855  
+https://github.com/node-alpha/max31855  
+
 https://github.com/tdack/MAX6675  
 https://github.com/apollo-ng/picoReflow/blob/master/lib/oven.py
 https://github.com/adafruit/MAX6675-library  
