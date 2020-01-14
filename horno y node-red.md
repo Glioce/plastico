@@ -33,9 +33,14 @@ https://github.com/keiichishima/RPiSensors
 Hay un fork que parece prometedor, pero tampoco funciona.  
 https://github.com/vitiral/linsensors  
 
+### apolo-ng/picoReflow  
+Proyecto de control de temperatura de un horno
+https://github.com/apollo-ng/picoReflow/blob/master/lib/oven.py  
+Usa una librería similar a la de tukie (bitbanging y pines configurables)  
+https://github.com/apollo-ng/picoReflow/blob/master/lib/max6675.py
+
 ### Otras bibliotecas que no se han probado  
 https://github.com/tdack/MAX6675  
-https://github.com/apollo-ng/picoReflow/blob/master/lib/oven.py  
 https://github.com/adafruit/MAX6675-library  
 Un programa escrito en C y compilado es llamado por otro programa escrito en Python  
 No suena muy eficiente  
