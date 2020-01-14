@@ -47,10 +47,11 @@ https://raspberrypi.stackexchange.com/questions/63556/using-a-max6675-with-raspb
 
 ## Usar python en Node-RED
 
-Para usar python dentro de Node-RED se utilizarán estos nodos
-https://flows.nodered.org/node/node-red-contrib-python-function
-https://flows.nodered.org/node/node-red-contrib-python3-function
-Y para usar módulos externos se usará este método
+Interpretar Python dentro de Node-RED  
+https://flows.nodered.org/node/node-red-contrib-python-function  
+https://flows.nodered.org/node/node-red-contrib-python3-function  
+Para usar módulos externos se usará este método  
 https://github.com/arnauorriols/node-red-contrib-python-function/issues/3  
 
-
+Ejecutar un archivo py  
+https://flows.nodered.org/node/node-red-contrib-pythonshell
