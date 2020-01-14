@@ -22,11 +22,18 @@ https://github.com/node-alpha/max31855
 Se intentó instalar con estas referencias pero no funcionó  
 https://github.com/Tuckie/max31855/issues/10  
 https://www.raspberrypi-spy.co.uk/2012/05/install-rpi-gpio-python-library/  
-Se puede usar la biblioteca sin instalar, con el método mostrado más abajo.
+Se puede usar la biblioteca sin instalar, con el método mostrado más abajo.  
 Sí funciona, pero a veces la lectura no cambia!  
 
+Esta bib no ha funcionado bien.
+Parece que devuelve valores al azar (7.5 se repite mucho)  
+https://github.com/keiichishima/RPiSensors
+Hay un fork que parece prometedor
+https://github.com/vitiral/linsensors
+
+Otras librerías que no se han probado  
 https://github.com/tdack/MAX6675  
-https://github.com/apollo-ng/picoReflow/blob/master/lib/oven.py
+https://github.com/apollo-ng/picoReflow/blob/master/lib/oven.py  
 https://github.com/adafruit/MAX6675-library  
 
 Para usar python dentro de Node-RED se utilizarán estos nodos
