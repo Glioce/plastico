@@ -29,9 +29,9 @@ Sí funciona, pero a veces la lectura no cambia!
 ### Keiichishima  
 Esta bib no ha funcionado bien.
 Parece que devuelve valores al azar (7.5 se repite mucho)  
-https://github.com/keiichishima/RPiSensors
-Hay un fork que parece prometedor
-https://github.com/vitiral/linsensors
+https://github.com/keiichishima/RPiSensors  
+Hay un fork que parece prometedor  
+https://github.com/vitiral/linsensors  
 
 ### Otras bibliotecas que no se han probado  
 https://github.com/tdack/MAX6675  
