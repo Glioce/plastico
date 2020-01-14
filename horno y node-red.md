@@ -55,3 +55,7 @@ https://github.com/arnauorriols/node-red-contrib-python-function/issues/3
 
 Ejecutar un archivo py  
 https://flows.nodered.org/node/node-red-contrib-pythonshell
+
+Crear servidor que se comunica con Node-RED y ejecuta archivos py  
+Está en fase pre-alpha!
+https://pypi.org/project/pynodered/
