@@ -34,7 +34,7 @@ Hay un fork que parece prometedor, pero tampoco funciona.
 https://github.com/vitiral/linsensors  
 
 ### apolo-ng/picoReflow  
-Proyecto de control de temperatura de un horno
+Proyecto de control de temperatura de un horno  
 https://github.com/apollo-ng/picoReflow/blob/master/lib/oven.py  
 Usa una librería similar a la de tukie (bitbanging y pines configurables)  
 https://github.com/apollo-ng/picoReflow/blob/master/lib/max6675.py
