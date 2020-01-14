@@ -36,7 +36,7 @@ https://github.com/vitiral/linsensors
 ### apolo-ng/picoReflow  
 Proyecto de control de temperatura de un horno  
 https://github.com/apollo-ng/picoReflow/blob/master/lib/oven.py  
-Usa una librería similar a la de tukie (bitbanging y pines configurables)  
+Usa una librería similar a la de tukie (bitbanging y pines configurables) y falla de la misma forma :(  
 https://github.com/apollo-ng/picoReflow/blob/master/lib/max6675.py
 
 ### Otras bibliotecas que no se han probado  
