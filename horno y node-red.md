@@ -30,7 +30,7 @@ Sí funciona, pero a veces la lectura no cambia!
 Esta bib no ha funcionado bien.
 Parece que devuelve valores al azar (7.5 se repite mucho)  
 https://github.com/keiichishima/RPiSensors  
-Hay un fork que parece prometedor  
+Hay un fork que parece prometedor, pero tampoco funciona.  
 https://github.com/vitiral/linsensors  
 
 ### Otras bibliotecas que no se han probado  
