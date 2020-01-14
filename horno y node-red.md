@@ -12,11 +12,12 @@ https://www.flintec.com/mx/sensores-de-peso/celulas-de-carga/ultraprecision
 Cómo conectar MAX6675. Hilo en foro desde 2016 hasta feb 2019  
 https://www.raspberrypi.org/forums/viewtopic.php?t=145568  
 
-Bibliotecas para MAX6675  
+## Bibliotecas para MAX6675  
 
-Esta bib solo funciona con MAX21855, pero el fork de abajo agrega MAX6675  
-Usa bit-banging, y no el hardware SPI
-Las ventajas que tiene es que se pueden 
+### Tuckie, node-alpha
+Esta bib solo funciona con MAX31855, pero el fork de abajo agrega MAX6675.  
+Desventajas: Usa bit-banging, y no el hardware SPI, restando eficiencia.  
+Ventajas: Se puede usar casi cualquier pin y conectar varios sensores.  
 https://github.com/Tuckie/max31855  
 https://github.com/node-alpha/max31855  
 Se intentó instalar con estas referencias pero no funcionó  
@@ -25,16 +26,26 @@ https://www.raspberrypi-spy.co.uk/2012/05/install-rpi-gpio-python-library/
 Se puede usar la biblioteca sin instalar, con el método mostrado más abajo.  
 Sí funciona, pero a veces la lectura no cambia!  
 
+### Keiichishima  
 Esta bib no ha funcionado bien.
 Parece que devuelve valores al azar (7.5 se repite mucho)  
 https://github.com/keiichishima/RPiSensors
 Hay un fork que parece prometedor
 https://github.com/vitiral/linsensors
 
-Otras librerías que no se han probado  
+### Otras bibliotecas que no se han probado  
 https://github.com/tdack/MAX6675  
 https://github.com/apollo-ng/picoReflow/blob/master/lib/oven.py  
 https://github.com/adafruit/MAX6675-library  
+Un programa escrito en C y compilado es llamado por otro programa escrito en Python  
+No suena muy eficiente  
+http://www.bristolwatch.com/rpi/geany.htm  
+Para NodeJS. Hay una serie de dependencias  
+https://www.npmjs.com/package/max6675-raspi
+Un script corto
+https://raspberrypi.stackexchange.com/questions/63556/using-a-max6675-with-raspberry-pi-3
+
+## Usar python en Node-RED
 
 Para usar python dentro de Node-RED se utilizarán estos nodos
 https://flows.nodered.org/node/node-red-contrib-python-function
@@ -42,12 +53,4 @@ https://flows.nodered.org/node/node-red-contrib-python3-function
 Y para usar módulos externos se usará este método
 https://github.com/arnauorriols/node-red-contrib-python-function/issues/3  
 
-Un programa escrito en C y compilado es llamado por otro programa escrito en Python  
-No suena muy eficiente  
-http://www.bristolwatch.com/rpi/geany.htm  
 
-Para NodeJS. Hay una serie de dependencias  
-https://www.npmjs.com/package/max6675-raspi
-
-Un script corto
-https://raspberrypi.stackexchange.com/questions/63556/using-a-max6675-with-raspberry-pi-3
