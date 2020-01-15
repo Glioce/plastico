@@ -3,6 +3,8 @@
 ## Trabajo previo
 Aquí hay un poco de info útil sobre Node-RED y RPi en  
 https://github.com/Glioce/MiniBrazoRS
+Cómo escribir un valor en nodo numeric (Node-RED Dashboard)  
+https://github.com/node-red/node-red-dashboard/issues/509  
 
 ## Medir presión  
 En este documento se describen varias opciones para medir presión  
