@@ -1,0 +1,220 @@
+[
+    {
+        "id": "7c96567c.a8d7f8",
+        "type": "inject",
+        "z": "e63fd596.9623c8",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 120,
+        "y": 300,
+        "wires": [
+            [
+                "b97d5a32.495a98"
+            ]
+        ]
+    },
+    {
+        "id": "d53e92bd.e1ec1",
+        "type": "function",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "func": "var date = new Date(msg.payload);\nmsg.payload = date.toString();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 310,
+        "y": 200,
+        "wires": [
+            [
+                "89201757.51e128"
+            ]
+        ]
+    },
+    {
+        "id": "89201757.51e128",
+        "type": "debug",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 480,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "f5e84d41.f5cc5",
+        "type": "rpi-gpio in",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "pin": "16",
+        "intype": "tri",
+        "debounce": "25",
+        "read": false,
+        "x": 210,
+        "y": 40,
+        "wires": [
+            [
+                "89201757.51e128",
+                "c957b20c.89f8e"
+            ]
+        ]
+    },
+    {
+        "id": "c957b20c.89f8e",
+        "type": "rpi-gpio out",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "pin": "12",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "x": 520,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "b97d5a32.495a98",
+        "type": "python-function",
+        "z": "e63fd596.9623c8",
+        "d": true,
+        "name": "py2 node-alpha",
+        "func": "#!/usr/bin/python\nimport sys\nsys.path.append('/home/pi/Downloads/node-alpha/max31855-master')\n#import max6675 #no se debe poner .py al final\nfrom max6675 import MAX6675, MAX6675Error\n\ncs_pin = 8\nclock_pin = 11\ndata_pin = 9\nunits = \"c\" #Grados Celsius\nthermocouple = MAX6675(cs_pin, clock_pin, data_pin, units)\n\nnode.log(\"Temperatura \" + str(thermocouple.get()))\nthermocouple.cleanup()\n\n#print(\"wwwww\")\n#return msg",
+        "outputs": 1,
+        "x": 300,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a1a44d84.a4e67",
+        "type": "python3-function",
+        "z": "e63fd596.9623c8",
+        "d": true,
+        "name": "py3",
+        "func": "#!/usr/bin/python\nimport sys\nsys.path.append('/home/pi/')\n#import max6675 #no se debe poner .py al final\nfrom max6675 import MAX6675, MAX6675Error\n\ncs_pin = 8\nclock_pin = 11\ndata_pin = 9\nunits = \"c\" #Grados Celsius\nthermocouple = MAX6675(cs_pin, clock_pin, data_pin, units)\n\nnode.log(\"Temperatura \" + str(thermocouple.get()))\nthermocouple.cleanup()\n\n#return msg",
+        "outputs": 1,
+        "x": 270,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ec729772.4e06d8",
+        "type": "inject",
+        "z": "e63fd596.9623c8",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 120,
+        "y": 360,
+        "wires": [
+            [
+                "a1a44d84.a4e67"
+            ]
+        ]
+    },
+    {
+        "id": "3acce587.70c68a",
+        "type": "inject",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 160,
+        "y": 200,
+        "wires": [
+            [
+                "d53e92bd.e1ec1"
+            ]
+        ]
+    },
+    {
+        "id": "4cb1ecd.86a2c14",
+        "type": "pythonshell in",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "pyfile": "/home/pi/Downloads/pico/main.py",
+        "virtualenv": "",
+        "continuous": false,
+        "stdInData": false,
+        "x": 460,
+        "y": 360,
+        "wires": [
+            [
+                "7cfef417.30ea0c"
+            ]
+        ]
+    },
+    {
+        "id": "4f1c31bb.d653e",
+        "type": "inject",
+        "z": "e63fd596.9623c8",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 500,
+        "y": 300,
+        "wires": [
+            [
+                "38be2222.91250e"
+            ]
+        ]
+    },
+    {
+        "id": "38be2222.91250e",
+        "type": "python-function",
+        "z": "e63fd596.9623c8",
+        "d": true,
+        "name": "py2 pico",
+        "func": "#!/usr/bin/python\nimport spidev\nimport sys\nsys.path.append('/home/pi/Downloads/pico')\nfrom max6675 import MAX6675\n\ncs_pin = 8\nclock_pin = 11\ndata_pin = 9\ntermo = MAX6675(cs_pin, clock_pin, data_pin)\n\nnode.log(\"Temperatura \" + str(termo.get()))\ntermo.cleanup()",
+        "outputs": 1,
+        "x": 660,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7cfef417.30ea0c",
+        "type": "debug",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 630,
+        "y": 360,
+        "wires": []
+    }
+]
