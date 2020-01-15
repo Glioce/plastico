@@ -15,11 +15,11 @@ https://www.flintec.com/mx/sensores-de-peso/celulas-de-carga/ultraprecision
 
 ## Bibliotecas para MAX6675
 Muchas bibliotecas que se mencionan más adelante se recomendaron en este hilo (desde 2016 hasta feb 2019).  
-Ninguna biblioteca funcionó bien.
+Ninguna biblioteca funcionó bien.  
 https://www.raspberrypi.org/forums/viewtopic.php?t=145568  
 
 ### Adafruit / Arduino
-Biblioteca para Arduino  
+Biblioteca para Arduino. Sí funciona (en Arduino).  
 https://github.com/adafruit/MAX6675-library  
 
 ### tuckie, node-alpha
@@ -56,7 +56,7 @@ https://github.com/tdack/MAX6675
 Un programa escrito en C y compilado es llamado por otro programa escrito en Python  
 No suena muy eficiente  
 http://www.bristolwatch.com/rpi/geany.htm  
-Para NodeJS. Hay una serie de dependencias  
+Bib para NodeJS. Hay una serie de dependencias y eso podría complicar la instalación  
 https://www.npmjs.com/package/max6675-raspi  
 Un script corto. La discusión en stackexchange tiene un link a otra página donde se puede descargar un zip.  
 No necesita una biblioteca externa. Parece buena opción, pero la bib de tdack ya funciona bien.  
