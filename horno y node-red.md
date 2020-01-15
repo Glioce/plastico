@@ -46,9 +46,9 @@ Un programa escrito en C y compilado es llamado por otro programa escrito en Pyt
 No suena muy eficiente  
 http://www.bristolwatch.com/rpi/geany.htm  
 Para NodeJS. Hay una serie de dependencias  
-https://www.npmjs.com/package/max6675-raspi
-Un script corto
-https://raspberrypi.stackexchange.com/questions/63556/using-a-max6675-with-raspberry-pi-3
+https://www.npmjs.com/package/max6675-raspi  
+Un script corto  
+https://raspberrypi.stackexchange.com/questions/63556/using-a-max6675-with-raspberry-pi-3  
 
 ## Usar python en Node-RED
 
@@ -62,5 +62,10 @@ Ejecutar un archivo py
 https://flows.nodered.org/node/node-red-contrib-pythonshell
 
 Crear servidor que se comunica con Node-RED y ejecuta archivos py  
-Está en fase pre-alpha!
-https://pypi.org/project/pynodered/
+Está en fase pre-alpha!  
+https://pypi.org/project/pynodered/  
+
+## Cambios en la configuración de la RPi
+Hasta ahora se han realizdo los siguientes cambios:  
++ Activar I2C y SPI desde `raspi-config` (También se puede cambiar desde el menú Inicio / Preferecias / Configuración de Raspberry Pi / Interfaces)  
++ Modificación de archivos en /etc/ (revisar nombre de arvhivos)  
