@@ -12,7 +12,7 @@ https://www.flintec.com/mx/sensores-de-peso/celulas-de-carga/ultraprecision
 Cómo conectar MAX6675. Hilo en foro desde 2016 hasta feb 2019  
 https://www.raspberrypi.org/forums/viewtopic.php?t=145568  
 
-## Bibliotecas para MAX6675  
+## Bibliotecas para MAX6675
 
 ### Adafruit / Arduino
 Biblioteca para Arduino  
@@ -30,22 +30,22 @@ https://www.raspberrypi-spy.co.uk/2012/05/install-rpi-gpio-python-library/
 Se puede usar la biblioteca sin instalar, con el método mostrado más abajo.  
 Sí funciona, pero a veces la lectura no cambia!  
 
-### keiichishima  
+### keiichishima
 Esta bib no ha funcionado bien.
 Parece que devuelve valores al azar (7.5 se repite mucho)  
 https://github.com/keiichishima/RPiSensors  
 Hay un fork que parece prometedor, pero tampoco funciona.  
 https://github.com/vitiral/linsensors  
 
-### apolo-ng/picoReflow  
+### apolo-ng/picoReflow
 Proyecto de control de temperatura de un horno  
 https://github.com/apollo-ng/picoReflow/blob/master/lib/oven.py  
 Usa una librería similar a la de tukie (bitbanging y pines configurables) y falla de la misma forma :(  
 https://github.com/apollo-ng/picoReflow/blob/master/lib/max6675.py
 
 ### tdack
-En la terminal funciona muy bien.  
-Esta biblioteca permite elegir si se usa hardware SPI o bit-banging.
+Esta biblioteca permite elegir si se usa hardware SPI o bit-banging.  
+En la terminal y en Node-RED funciona muy bien.  
 https://github.com/tdack/MAX6675  
 
 ### Otras bibliotecas que no se han probado  
