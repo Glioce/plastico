@@ -54,8 +54,10 @@ No suena muy eficiente
 http://www.bristolwatch.com/rpi/geany.htm  
 Para NodeJS. Hay una serie de dependencias  
 https://www.npmjs.com/package/max6675-raspi  
-Un script corto  
+Un script corto. La discusión en stackexchange tiene un link a otra página donde se puede descargar un zip.  
 https://raspberrypi.stackexchange.com/questions/63556/using-a-max6675-with-raspberry-pi-3  
+http://abyz.me.uk/rpi/pigpio/examples.html#Python_MAX6675_py  
+http://abyz.me.uk/rpi/pigpio/code/MAX6675_py.zip  
 
 ## Usar python en Node-RED
 Interpretar Python dentro de Node-RED  
