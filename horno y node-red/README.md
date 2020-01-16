@@ -1,7 +1,7 @@
 # Horno y Node-RED
 
 ## Trabajo previo
-Aquí hay un poco de info útil sobre Node-RED y RPi en  
+Aquí hay un poco de info útil sobre Node-RED y RPi  
 https://github.com/Glioce/MiniBrazoRS  
 Cómo escribir un valor en nodo numeric (Node-RED Dashboard)  
 https://github.com/node-red/node-red-dashboard/issues/509  
@@ -51,7 +51,7 @@ https://github.com/apollo-ng/picoReflow/blob/master/lib/max6675.py
 
 ### tdack
 Esta biblioteca permite elegir si se usa hardware SPI o bit-banging.  
-En la terminal y en Node-RED funciona muy bien.  
+En la terminal y en Node-RED funciona muy bien. Esta es la bib elegida.  
 https://github.com/tdack/MAX6675  
 
 ### Otras bibliotecas que no se han probado  
