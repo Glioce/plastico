@@ -2,7 +2,7 @@
 
 ## Trabajo previo
 Aquí hay un poco de info útil sobre Node-RED y RPi en  
-https://github.com/Glioce/MiniBrazoRS
+https://github.com/Glioce/MiniBrazoRS  
 Cómo escribir un valor en nodo numeric (Node-RED Dashboard)  
 https://github.com/node-red/node-red-dashboard/issues/509  
 
