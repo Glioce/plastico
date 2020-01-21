@@ -8,6 +8,8 @@ Cosas por hacer:
 ## Problemas de hardware
 Algunos cables USB A a micro USB tienen resistencia eléctrica muy elevada, eso causa una caída de voltaje que afecta el funcionamiento de la Raspberry Pi. Se deben usar cables cortos y de buena calidad.
 
+RPi dañada. Se manipuló con cuidado, pero un día dejó de funcionar.
+
 ## Configuración de resolución de pantalla
 https://learn.adafruit.com/hdmi-uberguide/2299-display-no-touchscreen-1024x600-hdmi-slash-vga-slash-ntsc-slash-pal  
 https://www.raspberrypi.org/forums/viewtopic.php?t=14914  
