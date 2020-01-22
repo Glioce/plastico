@@ -6,6 +6,13 @@ https://github.com/Glioce/MiniBrazoRS
 Cómo escribir un valor en nodo numeric (Node-RED Dashboard)  
 https://github.com/node-red/node-red-dashboard/issues/509  
 
+La perilla de control de temperatura que estaba instalada en el horno tiene un valor máximo de
+450 ^F = 232.2 ^C  
+El horno se ha calentado hasta 300 ^C con las resistencia al rojo vivo durante 10 minutos seguidos,
+no se presentaron problemas.  
+Las primeras veces que se calentó generó humo. Después solo se veía el aire caliente saliendo de
+la parte superior del horno.
+
 ## Medir presión  
 En este documento se describen varias opciones para medir presión  
 https://dspace.ups.edu.ec/bitstream/123456789/4482/1/UPS-CT001920.pdf  
