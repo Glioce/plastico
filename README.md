@@ -19,7 +19,8 @@ https://www.raspberrypi.org/documentation/configuration/config-txt/video.md
 Chromium inicia en pantalla completa  
 https://quaintproject.wordpress.com/2013/07/13/how-to-autostart-google-chromium-on-a-raspberry-pi/  
 https://raspberrypi.stackexchange.com/questions/69204/open-chromium-full-screen-on-start-up  
-Crear y/o editar archivo `autostart`
-`sudo leafpad ~/.config/lxsession/LXDE/autostart`
-Agregar la siguiente línea
-`@chromium-browser -kiosk`
+Crear y/o editar archivo `autostart`  
+`sudo leafpad ~/.config/lxsession/LXDE/autostart`  
+Agregar la siguiente línea  
+`@chromium-browser -kiosk`  
+
