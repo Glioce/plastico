@@ -13,6 +13,8 @@ no se presentaron problemas.
 Las primeras veces que se calentó generó humo. Después solo se veía el aire caliente saliendo de
 la parte superior del horno.
 
+Con una resistencia encendida funcionando con PWM a 10% se alcanza una temperatura de 146 ^C (temperatura ambiente ~20 ^C)
+
 ## Medir presión  
 En este documento se describen varias opciones para medir presión  
 https://dspace.ups.edu.ec/bitstream/123456789/4482/1/UPS-CT001920.pdf  
