@@ -24,3 +24,5 @@ Crear y/o editar archivo `autostart`
 Agregar la siguiente línea  
 `@chromium-browser -kiosk`  
 
+## Temperaturas de fusión de plásticos
+La tabla ya no está disponible
