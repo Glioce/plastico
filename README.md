@@ -25,4 +25,7 @@ Agregar la siguiente línea
 `@chromium-browser -kiosk`  
 
 ## Temperaturas de fusión de plásticos
-La tabla ya no está disponible
+Poster para comparar diferentes materiales y otros diseños  
+https://tecnologias.libres.cc/c_arpino/kanbio/tree/b7482e77ad46f1d2cccb4db407ce499f8697e664/precious-plastic-kit-master/5.%20Create  
+https://orangehillsmachinery.com/melting-temperatures/  
+
