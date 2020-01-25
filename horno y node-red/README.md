@@ -105,3 +105,12 @@ https://pypi.org/project/pynodered/
 Hasta ahora se han realizdo los siguientes cambios:  
 + Activar I2C y SPI desde `raspi-config` (También se puede cambiar desde el menú Inicio / Preferecias / Configuración de Raspberry Pi / Interfaces)  
 + Modificación de archivos en /etc/ (revisar nombre de arvhivos)  
+
+## PID
+Valores - En la RPi el en ancho de pulso de PWM se expresa como un porcentaje. Para evitar saturación de la salida del controlador se usará esta configuración: Un error de 300 grados causará una salida de 100%. El error proporcional más grande que se espera es de 250 grados (83.3%), sumando la parte integral y la parte derivativa se puede alcanzar la salida de 100%. La salida no puede ser negativa (no se puede enfriar más rápido).  
+
+Kp inicial = 0.33  
+Incrementar o disminuir Kp hasta tener poco sobre-tiro y oscilación.  
+Cambiar Kp a la mitad de su valor (o 60%)  
+Incrementar Ki para eliminar offset  
+Incrementar Kd si es necesario  
