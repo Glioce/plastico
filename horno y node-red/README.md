@@ -13,7 +13,14 @@ no se presentaron problemas.
 Las primeras veces que se calentó generó humo. Después solo se veía el aire caliente saliendo de
 la parte superior del horno.
 
+Verificar lo siguiente:  
 Con una resistencia encendida funcionando con PWM a 10% se alcanza una temperatura de 146 ^C (temperatura ambiente ~20 ^C)
+
+Triac  
+https://es.wikipedia.org/wiki/Triac  
+
+PID (Calibración)  
+https://en.wikipedia.org/wiki/PID_controller#Loop_tuning  
 
 ## Medir presión  
 En este documento se describen varias opciones para medir presión  
