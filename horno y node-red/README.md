@@ -24,6 +24,11 @@ https://www.disai.net/producto/celulas-carga-traccion-compresion-utilcell/
 https://www.flintec.com/mx/sensores-de-peso/celulas-de-carga/plataforma  
 https://www.flintec.com/mx/sensores-de-peso/celulas-de-carga/ultraprecision  
 
+Otros  
+https://forum.arduino.cc/index.php?topic=135043.0  
+http://www.nerdkits.com/videos/weighscale/  
+
+
 ## Bibliotecas para MAX6675
 Muchas bibliotecas que se mencionan más adelante se recomendaron en este hilo (desde 2016 hasta feb 2019).  
 Ninguna biblioteca funcionó bien.  
