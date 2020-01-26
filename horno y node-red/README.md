@@ -115,7 +115,6 @@ Cambiar Kp a la mitad de su valor (o 60%)
 Incrementar Ki para eliminar offset  
 Incrementar Kd si es necesario  
 
-PWM | Temp
 ---------------------------
 1%  | 28? ^C
 10% | 57 ^C
