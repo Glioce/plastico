@@ -114,3 +114,8 @@ Incrementar o disminuir Kp hasta tener poco sobre-tiro y oscilación.
 Cambiar Kp a la mitad de su valor (o 60%)  
 Incrementar Ki para eliminar offset  
 Incrementar Kd si es necesario  
+
+PWM | Temperatura máxima
+---------------------------
+1%  | 28? ^C
+10% | 57 ^C
