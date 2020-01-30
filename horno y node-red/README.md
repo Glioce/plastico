@@ -116,6 +116,6 @@ Incrementar Ki para eliminar offset
 Incrementar Kd si es necesario  
 
 | Val | Temperatura límite |
----------------------------
+------|--------------------
 | 1%  | 28? ^C |
 | 10% | 57 ^C  |
