@@ -22,6 +22,12 @@ https://es.wikipedia.org/wiki/Triac
 PID (Calibración)  
 https://en.wikipedia.org/wiki/PID_controller#Loop_tuning  
 
+## Especificaciones del horno
+nutrichef - Vertical Rotisserie Oven  
+Model No.: PKRT97  
+Power: 120V / 60Hz / 1500W  
+Capacity: 23L
+
 ## Medir presión  
 En este documento se describen varias opciones para medir presión  
 https://dspace.ups.edu.ec/bitstream/123456789/4482/1/UPS-CT001920.pdf  
