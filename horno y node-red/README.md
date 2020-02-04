@@ -119,7 +119,7 @@ Incrementar Ki para eliminar offset
 Incrementar Kd si es necesario  
 
 | PWM | Temperatura límite | Tiempo
-------|----------------------------
+------|--------------------|-------
 | 1%  | 28 ^C? | x
 | 10% | 57 ^C  | x
 | 50% | 140 ^C | 10 min
