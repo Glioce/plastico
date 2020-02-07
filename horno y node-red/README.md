@@ -23,6 +23,14 @@ Model No.: PKRT97
 Power: 120V / 60Hz / 1500W  
 Capacity: 23L
 
+## Especificaciones de gato (jack)
+Voltage: DC 12 V +- 1  
+Current: 11 A  
+Power: 75 W  
+Overcurrent protection: 15 A  
+Lifting range: 11-34 cm  
+Max Loading weight: 2000 kg  
+
 ## Medir presión  
 En este documento se describen varias opciones para medir presión  
 https://dspace.ups.edu.ec/bitstream/123456789/4482/1/UPS-CT001920.pdf  
