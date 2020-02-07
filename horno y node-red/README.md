@@ -15,6 +15,7 @@ la parte superior del horno.
 
 Triac  
 https://es.wikipedia.org/wiki/Triac  
+https://www.electronics-tutorials.ws/power/triac.html  
 
 ## Especificaciones del horno
 nutrichef - Vertical Rotisserie Oven  
