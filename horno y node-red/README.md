@@ -17,6 +17,10 @@ Triac
 https://es.wikipedia.org/wiki/Triac  
 https://www.electronics-tutorials.ws/power/triac.html  
 
+Circuito de detección de cruce por cero  
+https://www.prometec.net/zero-crossing-detection/  
+http://www.bristolwatch.com/ele2/zcnew.htm
+
 ## Especificaciones del horno
 nutrichef - Vertical Rotisserie Oven  
 Model No.: PKRT97  
