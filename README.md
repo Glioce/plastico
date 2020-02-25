@@ -1,10 +1,3 @@
-Pruebas rápidas de varios componentes de la recicladora de plástico.
-
-Cosas por hacer:
-- [ ] Subir diagramas
-- [ ] Referencias
-- [ ] ...
-
 ## Estructura
 Es una mesa hecha con perfiles estructurales de aluminio.
 La prensa es es una caja hecha con dos placas de acero (reforzadas con barras de acero). Se mantienen paralelas con 4 varillas roscadas.
