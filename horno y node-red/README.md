@@ -36,10 +36,10 @@ Versión 1
 | Café       | CS   | 24 | CE0       | 2
 | Amarillo   | SCK  | 23 | SCLK      | 3
 | Naranja    | 3.3V | 17 | 3V3       | 4
-| Negro      | GND  | -  | Por fuera | 5 
+| Negro      | GND  | Por fuera  | - | 5 
 | Azul       | Rel1 | 16 | BCM23     | 6
 | Azul-negro | Rel2 | 18 | BCM24     | 7
-| Rojo       | 5V   | -  | Por fuera | 8
+| Rojo       | 5V   | Por fuera  | - | 8
 
 Triac  
 https://es.wikipedia.org/wiki/Triac  
