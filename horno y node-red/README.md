@@ -28,6 +28,19 @@ Exactitud +-2 ^C de 0 a 700 ^C
 +- 5 ^C de 700 a 1000 ^C  
 Parece que esa exatitud es suficiente  
 
+### Colores de cables en GPIO de RPi
+Versión 1
+Pin en conector Molex | Color | Pin en Pi | Nombre
+----------------------|-------|-----------|-------
+1 | Rojo-negro | MISO | 21 | MISO
+2 | Café       | CS   | 24 | CE0
+3 | Amarillo   | SCK  | 23 | SCLK
+4 | Naranja    | 3.3V | 17 | 3V3
+5 | Negro      | GND  | -  | Por fuera
+6 | Azul       | IN1  | 16 | BCM23
+7 | Azul-negro | IN2  | 18 | BCM24
+8 | Rojo       | 5V   | -  | Por fuera
+
 Triac  
 https://es.wikipedia.org/wiki/Triac  
 https://www.electronics-tutorials.ws/power/triac.html  
