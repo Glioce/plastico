@@ -41,6 +41,18 @@ Versión 1
 | Azul-negro | Rel2 | 18 | BCM24     | 7
 | Rojo       | 5V   | Por fuera  | - | 8
 
+Versión 2
+| Color | Función | Pin en Pi | Nombre | Pin en conector Molex 
+|------------|------|----|------|------------------------
+| Rojo-negro | MISO | 21 | MISO | 1
+| Café       | CS   | 24 | CE0  | 2
+| Amarillo   | SCK  | 23 | SCLK | 3
+| Naranja    | 3.3V | 17 | 3V3  | 4
+| Negro      | GND  | 39 | GND  | 5 
+| Azul       | TX   | 16 | TXD  | 6
+| Azul-negro | RX   | 18 | RXD  | 7
+| Rojo       | 5V   | 2  | 5V   | 8
+
 Triac  
 https://es.wikipedia.org/wiki/Triac  
 https://www.electronics-tutorials.ws/power/triac.html  
