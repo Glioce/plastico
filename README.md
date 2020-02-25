@@ -13,7 +13,9 @@ Algunos cables USB A a micro USB tienen resistencia eléctrica muy elevada, eso 
 
 La RPi 3A+ parecía dañada, pero al parecer solo fallaba el cable de alimentación.
 
-Los relevadores producen picos de corriente
+Si se usan relevadores para controlar las resistencias calentadoras, la luz de las lámparas tiene cambios de intensidad (parpadean).
+
+Al utilizar una RPi 3B+ se tienen varios puertos USB disponibles y se pueden conectar al mismo tiempo la pantalla táctil, el Arduino y un teclado, pero si usa el modelo 3A+ solo hay un puerto disponible. Se pude usar un HUB USB (es mala opción) o se puede conectar el Arduino con los pines UART (sin conectar el teclado).
 
 ## Configuración de resolución de pantalla
 https://learn.adafruit.com/hdmi-uberguide/2299-display-no-touchscreen-1024x600-hdmi-slash-vga-slash-ntsc-slash-pal  
