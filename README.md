@@ -5,6 +5,16 @@ Cosas por hacer:
 - [ ] Referencias
 - [ ] ...
 
+## Estructura
+Es una mesa hecha con perfiles estructurales de aluminio.
+La prensa es es una caja hecha con dos placas de acero (reforzadas con barras de acero). Se mantienen paralelas con 4 varillas roscadas.
+Se usa un gato para levantar automóviles compactos.
+La altura de la caja se puede modificar desplazando las tuercas de las 4 varillas roscadas.
+
+### Seguridad en el manejo de la prensa
+
+### Seguridad en el manejo del horno
+
 ## Problemas de hardware
 Algunos cables USB A a micro USB tienen resistencia eléctrica muy elevada, eso causa una caída de voltaje que afecta el funcionamiento de la Raspberry Pi. Se deben usar cables cortos y de buena calidad.
 
