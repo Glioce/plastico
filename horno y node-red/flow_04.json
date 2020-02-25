@@ -1,0 +1,536 @@
+[
+    {
+        "id": "d53e92bd.e1ec1",
+        "type": "function",
+        "z": "e63fd596.9623c8",
+        "name": "control",
+        "func": "/*******************************************************\n * CONTROL\n * Este nodo se encaraga del control de temperatura del\n * horno. A la entrada llegan mensajes de varios nodos.\n * Cada mensaje tiene un topic que indica su función.\n * \n * Los tipos de entradas son temperatura, botón de\n * dashboard y botón en pin físico.\n * Cuando el programa sea más grande se repartirá\n * en varios nodos.\n ******************************************************/\n\nvar Kp = 1.2;\nvar Ki = 0.003;\nvar Kd = 0.0;\nvar T = 1.0; //periodo de muestreo (1 segundo)\n\n// Si llega el valor de la temperatura actual\nif (msg.topic == \"Temperatura\")\n{\n    var tem = msg.payload; //temperatura actual\n    var objetivo = flow.get('objetivo') || 0; //temperatura objetivo\n    var e = (objetivo - tem); //error proporcional\n    \n    var ie = flow.get('ie') || 0; //integral del error\n    ie += e; //agregar error actual (evitar crecimiento rápido)\n    flow.set('ie', ie); //guardar integral del error\n    // tal vez se deben descartar los valores negativos\n    \n    var ePrev = flow.get('ePrev') || e; //error previo\n    var de = (e - ePrev) / T; //derivada del error\n    flow.set('ePrev', e); //actualizar error previo\n    \n    u = (Kp * e) + (Ki * ie) + (Kd * de); //salida\n    msg.payload = String(e)+', '+String(ie)+', '+String(de)+', '+String(u);\n    \n    var out = {payload : Math.min(Math.max(u, 0), 100)};\n    return [msg, out];\n}\n",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 290,
+        "y": 280,
+        "wires": [
+            [
+                "89201757.51e128"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "89201757.51e128",
+        "type": "debug",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 470,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "c957b20c.89f8e",
+        "type": "rpi-gpio out",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "pin": "16",
+        "set": false,
+        "level": "1",
+        "freq": "200",
+        "out": "pwm",
+        "x": 600,
+        "y": 340,
+        "wires": [],
+        "info": "Salida de relay 1"
+    },
+    {
+        "id": "3c15b0a5.feca9",
+        "type": "inject",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "4379261d.afa5b8",
+                "9b351623.bacb68"
+            ]
+        ],
+        "info": "Funciona como un pulso de reloj.\nInyecta cada segundo para tomar una muestra."
+    },
+    {
+        "id": "4379261d.afa5b8",
+        "type": "python-function",
+        "z": "e63fd596.9623c8",
+        "name": "muestra",
+        "func": "#!/usr/bin/python\n# coding: utf8\n\n# Copyright (c) 2014 Adafruit Industries\n# Author: Tony DiCola\n#\n# Permission is hereby granted, free of charge, to any person obtaining a copy\n# of this software and associated documentation files (the \"Software\"), to deal\n# in the Software without restriction, including without limitation the rights\n# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n# copies of the Software, and to permit persons to whom the Software is\n# furnished to do so, subject to the following conditions:\n#\n# The above copyright notice and this permission notice shall be included in\n# all copies or substantial portions of the Software.\n#\n# THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\n# THE SOFTWARE.\n\n# Can enable debug output by uncommenting:\n#import logging\n#logging.basicConfig(level=logging.DEBUG)\n\nimport time\n\nimport Adafruit_GPIO.SPI as SPI\nimport MAX6675.MAX6675 as MAX6675\n\n\n# Define a function to convert celsius to fahrenheit.\ndef c_to_f(c):\n    return c * 9.0 / 5.0 + 32.0\n\n\n# Uncomment one of the blocks of code below to configure your Pi or BBB to use\n# software or hardware SPI.\n\n# Raspberry Pi software SPI configuration.\n# CLK = 25\n# CS  = 24\n# DO  = 18\n# sensor = MAX6675.MAX6675(CLK, CS, DO)\n\n# Raspberry Pi hardware SPI configuration.\nSPI_PORT   = 0\nSPI_DEVICE = 0\nsensor = MAX6675.MAX6675(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))\n\n# BeagleBone Black software SPI configuration.\n#CLK = 'P9_12'\n#CS  = 'P9_15'\n#DO  = 'P9_23'\n#sensor = MAX6675.MAX6675(CLK, CS, DO)\n\n# BeagleBone Black hardware SPI configuration.\n# SPI_PORT   = 1\n# SPI_DEVICE = 0\n# sensor = MAX6675.MAX6675(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))\n\n# Loop printing measurements every second.\n#print 'TERMOCOPLE' #'Press Ctrl-C to quit.'\n#while True:\n#\ttemp = sensor.readTempC()\n#\tprint 'Temperature: {0:0.3F}°C / {1:0.3F}°F'.format(temp, c_to_f(temp))\n#\ttime.sleep(1.0)\n\ntem = sensor.readTempC()\n#print 'Temperature: {0:0.3F}°C / {1:0.3F}°F'.format(tem, c_to_f(tem))\nmsg['payload'] = tem\nmsg['topic'] = 'Temperatura'\nreturn msg",
+        "outputs": 1,
+        "x": 280,
+        "y": 80,
+        "wires": [
+            [
+                "753bdf02.ef924",
+                "ffc2b321.36f44",
+                "1cd9addc.8f8f82",
+                "d53e92bd.e1ec1"
+            ]
+        ],
+        "info": "[py2 tdack]\n\nToma un muestra de temperatura del termopar. Ejecuta un script de Python 2 y usa una biblioteca instalada con pip.\n\nDevuelve un número con topic \"Temperatura\"."
+    },
+    {
+        "id": "753bdf02.ef924",
+        "type": "debug",
+        "z": "e63fd596.9623c8",
+        "d": true,
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 510,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "1cd9addc.8f8f82",
+        "type": "ui_chart",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "group": "afd3c622.262808",
+        "order": 1,
+        "width": 12,
+        "height": 8,
+        "label": "",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "300",
+        "removeOlder": "15",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#ff8000",
+            "#c0c0c0",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "outputs": 1,
+        "x": 490,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ffc2b321.36f44",
+        "type": "ui_gauge",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "group": "afd3c622.262808",
+        "order": 2,
+        "width": 4,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "Grados Celsius",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "300",
+        "colors": [
+            "#5151ff",
+            "#bdfa05",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 510,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "9b351623.bacb68",
+        "type": "function",
+        "z": "e63fd596.9623c8",
+        "name": "re-enviar",
+        "func": "var val; //valor de temperatura\n\n// si llega un mensaje con la temperatura objetivo\nif (msg.topic == 'Objetivo') {\n    val = msg.payload; //leer valor\n    //guardar en variable del flujo\n    flow.set('objetivo', val);\n}\n// si llega otro mensaje, re-enviar valor guardado\nelse {\n    // leer valor o 0 si no se encuentra\n    val = flow.get('objetivo') || 0;\n    msg.payload = val;\n    msg.topic = 'Objetivo';\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 280,
+        "y": 200,
+        "wires": [
+            [
+                "1cd9addc.8f8f82"
+            ]
+        ],
+        "info": "Este nodo re-envía el último valor introducido por el nodo \"Objetivo\".\nSi aún no se ha instroducido un valor, devulve 0.\nEl valor devuelto lleva el topic \"Objetivo\"."
+    },
+    {
+        "id": "5c9d82bd.7f601c",
+        "type": "ui_numeric",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "label": "Objetivo",
+        "tooltip": "",
+        "group": "afd3c622.262808",
+        "order": 3,
+        "width": 4,
+        "height": 1,
+        "wrap": false,
+        "passthru": true,
+        "topic": "Objetivo",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "300",
+        "step": 1,
+        "x": 120,
+        "y": 200,
+        "wires": [
+            [
+                "9b351623.bacb68"
+            ]
+        ],
+        "info": "Temperatura objetivo.\n\nEste es el valor de temperatura al que se debe llegar."
+    },
+    {
+        "id": "b92923ed.e4069",
+        "type": "rpi-gpio out",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "pin": "18",
+        "set": false,
+        "level": "1",
+        "freq": "200",
+        "out": "pwm",
+        "x": 600,
+        "y": 400,
+        "wires": [],
+        "info": "Salida de relay 2"
+    },
+    {
+        "id": "fdf55aae.00e7c8",
+        "type": "comment",
+        "z": "e63fd596.9623c8",
+        "name": "Indicadores",
+        "info": "Indicadores numéricos y una gráfica.",
+        "x": 510,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "a6da7459.3357a8",
+        "type": "ui_switch",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "label": "Rel1",
+        "tooltip": "",
+        "group": "afd3c622.262808",
+        "order": 6,
+        "width": 2,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 290,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d821739a.d2e57",
+        "type": "ui_switch",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "label": "Rel2",
+        "tooltip": "",
+        "group": "afd3c622.262808",
+        "order": 7,
+        "width": 2,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 290,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "81edf64.a986d08",
+        "type": "function",
+        "z": "e63fd596.9623c8",
+        "name": "negar",
+        "func": "msg. payload = !msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 190,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e88c896.92f2178",
+        "type": "ui_numeric",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "label": "PWM1",
+        "tooltip": "",
+        "group": "afd3c622.262808",
+        "order": 4,
+        "width": 4,
+        "height": 1,
+        "wrap": false,
+        "passthru": true,
+        "topic": "Objetivo",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "100",
+        "step": "1",
+        "x": 450,
+        "y": 340,
+        "wires": [
+            [
+                "c957b20c.89f8e",
+                "dd6d39c6.9b90b8"
+            ]
+        ],
+        "info": "Temperatura objetivo.\n\nEste es el valor de temperatura al que se debe llegar."
+    },
+    {
+        "id": "62912da8.f5c704",
+        "type": "ui_numeric",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "label": "PWM2",
+        "tooltip": "",
+        "group": "afd3c622.262808",
+        "order": 5,
+        "width": 4,
+        "height": 1,
+        "wrap": false,
+        "passthru": true,
+        "topic": "Objetivo",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "100",
+        "step": "1",
+        "x": 450,
+        "y": 400,
+        "wires": [
+            [
+                "b92923ed.e4069"
+            ]
+        ],
+        "info": "Temperatura objetivo.\n\nEste es el valor de temperatura al que se debe llegar."
+    },
+    {
+        "id": "aa5b5a28.808d48",
+        "type": "inject",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 360,
+        "y": 500,
+        "wires": [
+            [
+                "f3abac8d.7a438"
+            ]
+        ]
+    },
+    {
+        "id": "f3abac8d.7a438",
+        "type": "function",
+        "z": "e63fd596.9623c8",
+        "name": "Reset integral",
+        "func": "flow.set('ie', 0);\n//return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 540,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "533e2c99.3118a4",
+        "type": "serial out",
+        "z": "e63fd596.9623c8",
+        "name": "Arduino",
+        "serial": "11a9d1c5.7c73be",
+        "x": 780,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "dd6d39c6.9b90b8",
+        "type": "function",
+        "z": "e63fd596.9623c8",
+        "name": "code2char",
+        "func": "// Devuelve un caracter con el código introducido\n\n// Se usa la función fromCharCode que puede\n// devolver caracteres de más de 1 byte\n// La entrada se restringe de 0 a 100\n\nvar val = msg.payload; //valor de entrada\nif (val < 0) val = 0; //no debe ser menor a 0\nif (val > 100) val = 100; //no debe ser mayor a 100\nmsg.payload = String.fromCharCode(val); //obtener char\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 610,
+        "y": 300,
+        "wires": [
+            [
+                "533e2c99.3118a4"
+            ]
+        ]
+    },
+    {
+        "id": "f1330300.c1db8",
+        "type": "debug",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 690,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "77ede1d1.840f6",
+        "type": "exec",
+        "z": "e63fd596.9623c8",
+        "command": "hostname -I",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 390,
+        "y": 560,
+        "wires": [
+            [
+                "cca534d5.336288"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "cca534d5.336288",
+        "type": "ui_text",
+        "z": "e63fd596.9623c8",
+        "group": "afd3c622.262808",
+        "order": 9,
+        "width": 4,
+        "height": 1,
+        "name": "",
+        "label": "IP:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 550,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "8923ddd3.b9837",
+        "type": "inject",
+        "z": "e63fd596.9623c8",
+        "name": "",
+        "topic": "",
+        "payload": "Started!",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 220,
+        "y": 560,
+        "wires": [
+            [
+                "77ede1d1.840f6"
+            ]
+        ]
+    },
+    {
+        "id": "afd3c622.262808",
+        "type": "ui_group",
+        "z": "",
+        "name": "Default",
+        "tab": "af63524a.cea8a",
+        "disp": false,
+        "width": "16",
+        "collapse": false
+    },
+    {
+        "id": "11a9d1c5.7c73be",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "/dev/ttyUSB0",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "af63524a.cea8a",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Horno y Prensa",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
