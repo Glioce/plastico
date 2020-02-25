@@ -16,9 +16,11 @@ La altura de la caja se puede modificar desplazando las tuercas de las 4 varilla
 ### Seguridad en el manejo del horno
 
 ## Problemas de hardware
-Algunos cables USB A a micro USB tienen resistencia eléctrica muy elevada, eso causa una caída de voltaje que afecta el funcionamiento de la Raspberry Pi. Se deben usar cables cortos y de buena calidad.
+Algunos cables USB A a micro USB tienen resistencia eléctrica muy elevada, eso causa una caída de voltaje la Raspberry Pi muestra el ícono de bajo voltaje (rayo). Se deben usar cables cortos y de buena calidad.
 
-RPi dañada. Se manipuló con cuidado, pero un día dejó de funcionar.
+La RPi 3A+ parecía dañada, pero al parecer solo fallaba el cable de alimentación.
+
+Los relevadores producen picos de corriente
 
 ## Configuración de resolución de pantalla
 https://learn.adafruit.com/hdmi-uberguide/2299-display-no-touchscreen-1024x600-hdmi-slash-vga-slash-ntsc-slash-pal  
