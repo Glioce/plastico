@@ -13,6 +13,12 @@ no se presentaron problemas.
 Las primeras veces que se calentó generó humo. Después solo se veía el aire caliente saliendo de
 la parte superior del horno.  
 
+### Componentes de circuito para controlar temperatura de resistencias
+Arduino Nano  
+Optoacoplador **H11AA** para detectar cruce por cero  
+Optoacoplador **MOC3011** para activar triac  
+Triac **BTA24** para encender resistencias  
+
 ### Módulo MAX6675
 Termocople tipo K  
 Rango de temperatura 0 - 1023.75 ^C  
