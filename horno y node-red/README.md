@@ -13,6 +13,15 @@ no se presentaron problemas.
 Las primeras veces que se calentó generó humo. Después solo se veía el aire caliente saliendo de
 la parte superior del horno.  
 
+### Módulo MAX6675
+Termocople tipo K  
+Rango de temperatura 0 - 1023.75 ^C  
+Máximo 4 lecturas por segundo  
+Lectura de 12 bits en el rango 0 - 4095, en unidades de 0.25 ^C  
+Exactitud +-2 ^C de 0 a 700 ^C  
++- 5 ^C de 700 a 1000 ^C  
+Parece que esa exatitud es suficiente  
+
 Triac  
 https://es.wikipedia.org/wiki/Triac  
 https://www.electronics-tutorials.ws/power/triac.html  
@@ -34,6 +43,11 @@ Power: 75 W
 Overcurrent protection: 15 A  
 Lifting range: 11-34 cm  
 Max Loading weight: 2000 kg  
+Cable de alimentación: Café +12 V, Azul GND  
+Cables de interruptores de límites: azul, blanco y café  
+Para controlar el gato desde la RPi se pueden puentear los botones con otros relevadores o transistores  
+
+Falta sensor para medir la presión.  
 
 ## Medir presión  
 En este documento se describen varias opciones para medir presión  
@@ -106,6 +120,8 @@ https://flows.nodered.org/node/node-red-contrib-python-function
 https://flows.nodered.org/node/node-red-contrib-python3-function  
 Para usar módulos externos se usará este método  
 https://github.com/arnauorriols/node-red-contrib-python-function/issues/3  
+
+Nota: Una ventaja del nodo python-function (en comparación con pythonshell) es que todo el código está en el flujo y no se requiere un archivo py externo.
 
 Ejecutar un archivo py  
 https://flows.nodered.org/node/node-red-contrib-pythonshell
