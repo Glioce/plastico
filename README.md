@@ -18,6 +18,15 @@ Si se usan relevadores para controlar las resistencias calentadoras, la luz de l
 Al utilizar una RPi 3B+ se tienen varios puertos USB disponibles y se pueden conectar al mismo tiempo la pantalla táctil, el Arduino y un teclado, pero si usa el modelo 3A+ solo hay un puerto disponible. Se pude usar un HUB USB (es mala opción) o se puede conectar el Arduino con los pines UART (sin conectar el teclado).
 
 ## Configuración de resolución de pantalla
+Editar el archivo /boot/config.txt y agregar o descomentar las siguientes líneas
+
+hdmi_force_hotplug=1
+hdmi_group=2
+hdmi_mode=1
+hdmi_mode=87
+hdmi_cvt=1024 600 60 3 0 0 0
+
+Aquí puedes revisar más información relacionada:
 https://learn.adafruit.com/hdmi-uberguide/2299-display-no-touchscreen-1024x600-hdmi-slash-vga-slash-ntsc-slash-pal  
 https://www.raspberrypi.org/forums/viewtopic.php?t=14914  
 https://www.raspberrypi.org/documentation/configuration/config-txt/video.md  
@@ -27,7 +36,7 @@ Chromium inicia en pantalla completa
 https://quaintproject.wordpress.com/2013/07/13/how-to-autostart-google-chromium-on-a-raspberry-pi/  
 https://raspberrypi.stackexchange.com/questions/69204/open-chromium-full-screen-on-start-up  
 Crear y/o editar archivo `autostart`  
-`sudo leafpad ~/.config/lxsession/LXDE/autostart`  
+`sudo nano ~/.config/lxsession/LXDE/autostart`  
 Agregar la siguiente línea  
 `@chromium-browser -kiosk`  
 
