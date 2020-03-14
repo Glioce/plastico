@@ -18,13 +18,13 @@ Si se usan relevadores para controlar las resistencias calentadoras, la luz de l
 Al utilizar una RPi 3B+ se tienen varios puertos USB disponibles y se pueden conectar al mismo tiempo la pantalla táctil, el Arduino y un teclado, pero si usa el modelo 3A+ solo hay un puerto disponible. Se pude usar un HUB USB (es mala opción) o se puede conectar el Arduino con los pines UART (sin conectar el teclado).
 
 ## Configuración de resolución de pantalla
-Editar el archivo /boot/config.txt y agregar o descomentar las siguientes líneas
+Editar el archivo `/boot/config.txt` y agregar o descomentar las siguientes líneas
 
-hdmi_force_hotplug=1
+`hdmi_force_hotplug=1
 hdmi_group=2
 hdmi_mode=1
 hdmi_mode=87
-hdmi_cvt=1024 600 60 3 0 0 0
+hdmi_cvt=1024 600 60 3 0 0 0`
 
 Aquí puedes revisar más información relacionada:
 https://learn.adafruit.com/hdmi-uberguide/2299-display-no-touchscreen-1024x600-hdmi-slash-vga-slash-ntsc-slash-pal  
