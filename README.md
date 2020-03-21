@@ -20,11 +20,11 @@ Al utilizar una RPi 3B+ se tienen varios puertos USB disponibles y se pueden con
 ## Configuración de resolución de pantalla
 Editar el archivo `/boot/config.txt` y agregar o descomentar las siguientes líneas
 
-`hdmi_force_hotplug=1
-hdmi_group=2
-hdmi_mode=1
-hdmi_mode=87
-hdmi_cvt=1024 600 60 3 0 0 0`
+`hdmi_force_hotplug=1  
+hdmi_group=2  
+hdmi_mode=1  
+hdmi_mode=87  
+hdmi_cvt=1024 600 60 3 0 0 0`  
 
 Aquí puedes revisar más información relacionada:
 https://learn.adafruit.com/hdmi-uberguide/2299-display-no-touchscreen-1024x600-hdmi-slash-vga-slash-ntsc-slash-pal  
